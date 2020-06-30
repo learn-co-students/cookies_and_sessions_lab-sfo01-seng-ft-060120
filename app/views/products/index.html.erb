@@ -1,0 +1,21 @@
+<h1>Shopping Cart Application</h1>
+
+<%= form_tag(products_add_path) do %>
+    <%= label_tag("product", "Product") %>
+    <%= text_field_tag("product") %>
+    <%= submit_tag "add to cart"%>
+
+<% end %>
+
+<h3>Cart Items: </h3>
+
+<% if cart.empty? %>
+    <p><%= "Nothing in Cart" %></p>
+<% else %>
+    <ol>
+    <% cart.each do |item| %>
+        <li><%= item %></li>
+    <% end %>
+    </ol>
+<% end %>
+
